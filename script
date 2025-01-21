@@ -1,0 +1,20 @@
+
+DATA: gv_result TYPE p DECIMALS 2.     " Variável para armazenar o resultado
+
+CONSTANTS: gc_pi TYPE p VALUE '3.14'.  " Constante para o valor de PI
+
+" Permitir entrada do raio
+PARAMETERS: p_radius TYPE p DECIMALS 2. " Parâmetro para entrada do raio
+
+" Verificar se o raio foi informado
+START-OF-SELECTION.
+  IF p_radius IS INITIAL.
+    WRITE: / 'Por favor, insira um valor válido para o raio!'.
+  ELSE.
+    " Calculando a área do círculo (A = π * r²)
+    gv_result = gc_pi * p_radius ** 2.
+
+    " Exibindo o resultado
+    WRITE: / 'Raio Informado:', p_radius,
+           / 'Área do Círculo:', gv_result.
+  ENDIF.
